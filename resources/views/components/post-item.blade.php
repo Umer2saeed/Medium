@@ -1,6 +1,6 @@
 <div class="my-12 hover:shadow-2xl transition duration-300 ease-in-out rounded-xl p-4">
     {{-- Post Header --}}
-    
+
     <div class="flex card-header mb-2">
         <img src="https://miro.medium.com/v2/resize:fill:20:20/1*AXYe3ZfLJvIjSW7fD3Eakg.jpeg" class="ml-4 mr-2" alt="">
         <span class="text-[13.5px] text-gray-500"> by <a href="#" class=" text-black hover:underline">The Medium Blog</a></span>
@@ -11,7 +11,7 @@
             <div class="flex flex-col flex-wrap px-4">
                 <h2 class="text-2xl font-extrabold">{{ $post->title }}</h2>
                 <div class="text-gray-600 pt-1.5">{{ Str::words($post->content, 20) }}</div>
-                
+
 
                 <div class="flex mt-4 gap-4">
                     <span class="post_published_date text-sm text-gray-500">Apr 24</span>
@@ -28,10 +28,10 @@
                         <span class="">113</span>
                     </div>
                 </div>
-                    
+
             </div>
 
-            <div class="flex flex-row justify-end w-auto sm:w-full md:w-full lg:w-2/4 xl:w-2/4">
+            <div class="flex flex-row justify-end mr-4 w-auto sm:w-full md:w-full lg:w-2/4 xl:w-2/4">
                 <img src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Post Image"
                     class="object-cover rounded-xl h-[107px] w-[160px]">
             </div>
