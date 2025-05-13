@@ -2,15 +2,15 @@
     {{-- Post Header --}}
 
     <div class="flex card-header mb-2">
-        <img src="https://miro.medium.com/v2/resize:fill:20:20/1*AXYe3ZfLJvIjSW7fD3Eakg.jpeg" class="ml-4 mr-2" alt="">
+        <a href="#"><img src="https://miro.medium.com/v2/resize:fill:20:20/1*AXYe3ZfLJvIjSW7fD3Eakg.jpeg" class="ml-4 mr-2" alt=""></a>
         <span class="text-[13.5px] text-gray-500"> by <a href="#" class=" text-black hover:underline">The Medium Blog</a></span>
     </div>
 
     <div class="my-2">
         <div class="flex flex-row bg-white ">
             <div class="flex flex-col flex-wrap px-4">
-                <h2 class="text-2xl font-extrabold">{{ $post->title }}</h2>
-                <div class="text-gray-600 pt-1.5">{{ Str::words($post->content, 20) }}</div>
+                <h2 class="text-2xl font-extrabold"><a href="#">{{ $post->title }}</a></h2>
+                <a href="#"><div class="text-gray-600 pt-1.5">{{ Str::words($post->content, 20) }}</div></a>
 
 
                 <div class="flex mt-4 gap-4">
@@ -46,8 +46,8 @@
             </div>
 
             <div class="flex flex-row justify-end mr-4 w-auto sm:w-full md:w-full lg:w-2/4 xl:w-2/4">
-                <img src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Post Image"
-                    class="object-cover rounded-xl h-[107px] w-[160px]">
+                <a href="#"><img src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="Post Image"
+                                 class="object-cover rounded-xl h-[107px] w-[160px]"></a>
             </div>
         </div>
     </div>
