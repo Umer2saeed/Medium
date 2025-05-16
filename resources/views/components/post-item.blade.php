@@ -9,7 +9,7 @@
     <div class="my-2">
         <div class="flex flex-row bg-white ">
             <div class="flex flex-col flex-wrap px-4">
-                <h2 class="text-2xl font-extrabold"><a href="#">{{ $post->title }}</a></h2>
+                <h2 class="text-2xl font-extrabold"><a href="{{ route('post.show', $post->slug) }}">{{ $post->title }}</a></h2>
                 <a href="#"><div class="text-gray-600 pt-1.5">{{ Str::words($post->content, 20) }}</div></a>
 
 

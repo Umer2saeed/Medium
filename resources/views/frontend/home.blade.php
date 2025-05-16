@@ -32,7 +32,6 @@
                     <div class="text-center">
                         <h2 class="text-2xl py-6 text-gray-400">No posts available</h2>
                     </div>
-
                 @endforelse
                 {{-- Pagination --}}
                 {{ $posts->onEachSide(1)->links() }}
