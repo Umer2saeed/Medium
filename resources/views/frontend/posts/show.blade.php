@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-full mx-auto flex justify-center">
-        <div class="w-[680px] my-12 border">
+        <div class="w-[680px] my-12">
 
             <div class="mb-2">
                 <h1 class="text-[45px] font-bold leading-[50px] tracking-tight">Why we’ve suspended some Partner Program accounts this week</h1>
@@ -55,6 +55,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="image mt-12">
+                <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/0*bDj4KleMnASXmF0V" alt="">
             </div>
 
         </div>
