@@ -15,4 +15,9 @@ class HomeController extends Controller
             'posts' => $posts
         ]);
     }
+
+    public function another()
+    {
+        return view('frontend.another');
+    }
 }
