@@ -9,6 +9,7 @@ use App\Models\User;
 use Hash;
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -30,11 +31,11 @@ class DatabaseSeeder extends Seeder
             'Home & Kitchen',
             'Sports & Outdoors',
         ];
-        
+
         foreach ($categories as $category) {
             Category::create(['name' => $category]);
         }
 
-        Post::factory(100)->create();
+        Post::factory(50)->create();
     }
 }

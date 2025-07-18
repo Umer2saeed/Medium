@@ -17,5 +17,7 @@ class Post extends Model
         'category_id',
         'user_id',
         'published_at',
+        'views',
+        'status'
     ];
 }

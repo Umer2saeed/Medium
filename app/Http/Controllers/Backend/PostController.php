@@ -8,6 +8,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -38,9 +39,12 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validation = Validator::make($request->all(), [
-            'title' => 'required|unique:posts|string|max:100',
+            'title' => 'required|unique:posts|string|min:10|max:100',
+            'slug' => 'required|unique:posts,slug',
             'category_id' => 'required',
             'content' => 'required',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'status' => 'required',
         ]);
 
         if ($validation->fails()) {
@@ -48,10 +52,12 @@ class PostController extends Controller
         }
         $post = new Post();
         $post->title = $request->title;
-        $post->slug = str($request->title)->slug();
+        $post->slug = Str::slug($request->slug);
         $post->content = $request['content'];
         $post->category_id = $request->category_id;
         $post->user_id = Auth::user()->id;
+        $post->published_at = $request->published_at;
+        $post->status = $request->status;
         $post->save();
 
         return to_route('posts.index')->with('success', 'Post created successfully!');

@@ -1,3 +1,5 @@
+/* Flowbite theme variables (path may change per build setup) */
+@import "flowbite/src/themes/default.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
