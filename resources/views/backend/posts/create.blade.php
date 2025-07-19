@@ -49,7 +49,7 @@
                         </div>
                         <div>
                             <x-input-label for="image" :value="__('Image')" />
-                            <x-file-input type="file" name="image" id="image" />
+                            <x-file-input type="file" name="image" id="image" class="mt-1 block w-full"/>
                             <x-input-error class="mt-2" :messages="$errors->get('image')" />
                         </div>
                     </div>
