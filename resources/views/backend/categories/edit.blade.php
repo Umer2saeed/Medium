@@ -52,11 +52,19 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1">
+                    <div class="grid grid-cols-2 gap-2">
                         <div>
                             <x-input-label for="description" :value="__('Description')" />
                             <textarea name="description" class ="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" cols="30" rows="4">{{ old('description', $category->description) }}</textarea>
                             <x-input-error class="mt-2" :messages="$errors->get('description')" />
+                        </div>
+                        <div>
+                            <x-input-label for="image_preview" :value="__('Image Preview')" />
+                            @if(!empty($category->image))
+                                <img src="{{ asset('images/categories/thumb/'.$category->image) }}" alt="{{ $category->name }}" class="h-[113px] mt-1 w-auto rounded-md">
+                            @else
+                                <span class="text-gray-500 text-sm">No image</span>
+                            @endif
                         </div>
                     </div>
 
