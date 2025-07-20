@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManager;
@@ -124,21 +125,31 @@ class CategoryController extends Controller
         $category->description = $request['description'];
         $category->status = $request->status;
 
-//        dd(url($category->image));
         //code for image
         $imagePath = null;
         if ($request->hasFile('image')){
             // Delete old image
-            if ($category->image) {
-                $oldImage = public_path('categories/'.$category->image);
-                if (file_exists($oldImage))
-                {
-                    unlink($oldImage);
-                    dd('success');
-                }
-            }
-            $imagePath = $request->file('image')->store('categories', 'public');
-            $category->image = $imagePath;
+            File::delete(public_path('/images/categories/'.$category->image));
+            File::delete(public_path('/images/categories/thumb/'.$category->image));
+
+            $image = $request->file('image');
+            // Creating unique image name
+            $ext = $image->getClientOriginalExtension();
+            $imageName = $category->slug.'-'.time().'.'.$ext;
+            $image->move(public_path('/images/categories/'),$imageName);
+
+            // Create a small thumbnail
+            $sourcePath = public_path('/images/categories/'.$imageName);
+            $destinationPath = public_path('/images/categories/thumb/'.$imageName);
+            $manager = new ImageManager(Driver::class);
+            $image = $manager->read($sourcePath);
+
+            // Setting size
+            $image->cover(150, 150);
+            $image->toPng()->save($destinationPath);
+
+            // Save image name to database field
+            $category->image = $imageName;
         }
         $category->save();
 
