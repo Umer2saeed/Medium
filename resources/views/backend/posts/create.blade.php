@@ -57,7 +57,7 @@
                     <div class="grid grid-cols-1">
                         <div>
                             <x-input-label for="content" :value="__('Content')" />
-                            <x-textarea id="content" name="content" type="text" class="mt-1 block w-full" :value="old('content')" autocomplete="content" />
+                            <textarea name="content" class ="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" cols="30" rows="4">{{ old('content') }}</textarea>
                             <x-input-error class="mt-2" :messages="$errors->get('content')" />
                         </div>
                     </div>
@@ -67,8 +67,8 @@
                             <x-input-label for="status" :value="__('Status')" />
                             <select id="status" name="status" class="mt-1 py-2.5 px-4 pe-9 block w-full border-gray-300 rounded-md text-sm focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none">
                                 <option value="">Select Status</option>
-                                <option value="1" {{ old('status') == 1 ? 'selected' : '' }}>Active</option>
-                                <option value="0" {{ old('status') == 0 ? 'selected' : '' }}>Inactive</option>
+                                <option value="1">Active</option>
+                                <option value="0">Inactive</option>
                             </select>
                             <x-input-error class="mt-2" :messages="$errors->get('status')" />
                         </div>

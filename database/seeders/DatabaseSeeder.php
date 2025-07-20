@@ -8,6 +8,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Hash;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 
 class DatabaseSeeder extends Seeder
@@ -33,7 +34,12 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($categories as $category) {
-            Category::create(['name' => $category]);
+            Category::create([
+                'name' => $category,
+                'slug' => Str::slug($category),
+                'description' => fake()->sentence,
+                'status' => 1
+            ]);
         }
 
         Post::factory(50)->create();

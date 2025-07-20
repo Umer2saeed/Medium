@@ -20,7 +20,7 @@
                     </div>
 
                     <div>
-                        <a href="{{ route('posts.create') }}" class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">Create Post</a>
+                        <a href="{{ route('posts.create') }}" class="rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white border border-indigo-500 hover:border-indigo-600 shadow-xs hover:bg-indigo-600">Create Post</a>
                     </div>
                 </header>
 
@@ -157,15 +157,4 @@
         </div>
     </div>
 
-
-    @section('scripts')
-        <script>
-            if (document.getElementById("search-table") && typeof simpleDatatables.DataTable !== 'undefined') {
-                const dataTable = new simpleDatatables.DataTable("#search-table", {
-                    searchable: true,
-                    sortable: false
-                });
-            }
-        </script>
-    @endsection
 </x-app-layout>

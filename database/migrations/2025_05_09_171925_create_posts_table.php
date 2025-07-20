@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->longText('content');
             $table->string('image')->nullable();
-            $table->tinyInteger('status')->default(1)->comment('1=active, 0=inactive');
+            $table->tinyInteger('status')->default(1)->comment('0=inactive,1=active');
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamp('published_at')->nullable();
