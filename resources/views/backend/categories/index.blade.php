@@ -54,7 +54,7 @@
                                     </th>
                                     <td class="px-6 py-4">
                                         @if(!empty($category->image))
-                                            <img src="{{ asset('storage/'.$category->image) }}" alt="{{ $category->name }}" class="h-16 w-auto rounded-md">
+                                            <img src="{{ asset('images/categories/thumb/'.$category->image) }}" alt="{{ $category->name }}" class="h-16 w-auto rounded-md">
                                         @else
                                             <span class="text-gray-500 text-sm">No image</span>
                                         @endif
@@ -64,13 +64,16 @@
                                     </td>
                                     <td class="px-6 py-4">
                                         @if($category->status == '1')
-                                            <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Active</span>
+{{--                                            <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Active</span>--}}
+                                            <span class="bg-green-200 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-md">Active</span>
                                         @else
-                                            <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Inactive</span>
+{{--                                            <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600/10 ring-inset">Inactive</span>--}}
+                                            <span class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-md">Inactive</span>
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        <a href="{{ route('categories.edit', $category->id) }}" class="font-medium text-indigo-500 hover:underline">Edit</a>
+                                        <a href="#" class="font-medium text-red-500 hover:underline ml-2">Delete</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/categories', [App\Http\Controllers\Backend\CategoryController::class, 'index'])->name('categories.index');
     Route::get('/categories/create', [App\Http\Controllers\Backend\CategoryController::class, 'create'])->name('categories.create');
     Route::post('/categories/store', [App\Http\Controllers\Backend\CategoryController::class, 'store'])->name('categories.store');
+    Route::get('/categories/edit/{id}', [App\Http\Controllers\Backend\CategoryController::class, 'edit'])->name('categories.edit');
+    Route::put('/categories/{id}', [App\Http\Controllers\Backend\CategoryController::class, 'update'])->name('categories.update');
 
     // Post Routes
     Route::get('/posts', [App\Http\Controllers\Backend\PostController::class, 'index'])->name('posts.index');
