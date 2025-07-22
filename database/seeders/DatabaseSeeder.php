@@ -37,8 +37,8 @@ class DatabaseSeeder extends Seeder
             Category::create([
                 'name' => $category,
                 'slug' => Str::slug($category),
-                'description' => fake()->sentence,
-                'status' => 1
+                'description' => fake()->paragraph(5, true),
+                'status' => rand(0,1)
             ]);
         }
 

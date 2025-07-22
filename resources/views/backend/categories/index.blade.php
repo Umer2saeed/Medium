@@ -63,7 +63,7 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{ $category->description }}
+                                        {{ Str::words($category->description, 10) }}
                                     </td>
                                     <td class="px-6 py-4">
                                         @if($category->status == '1')
@@ -72,7 +72,7 @@
                                             <span class="bg-red-200 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-md">Inactive</span>
                                         @endif
                                     </td>
-                                    <td class="px-6 py-4 text-right">
+                                    <td class="px-6 py-4 w-48 text-right">
                                         <a href="{{ route('categories.show', $category->id) }}" class="font-medium text-gray-500 hover:underline">View</a>
                                         <a href="{{ route('categories.edit', $category->id) }}" class="font-medium text-indigo-500 hover:underline ml-2">Edit</a>
                                         <form class="inline" action="{{ route('categories.destroy', $category->id) }}" method="POST">
@@ -87,6 +87,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $categories->links() }}
 
             </div>
         </div>

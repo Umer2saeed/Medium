@@ -18,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::orderBy('created_at', 'desc')->get();
+        $categories = Category::orderBy('created_at', 'desc')->paginate(10);
         return view('backend.categories.index', [
             'categories' => $categories
         ]);
@@ -164,7 +164,9 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        $category = Category::findOrFail($id);
+        $category = Category::find($id);
+        if (empty($category))
+            return redirect()->route('categories.index')->with('error', 'Category not found!');
         $category->delete();
         return redirect()->route('categories.index')->with('success', 'Category deleted successfully!');
     }
