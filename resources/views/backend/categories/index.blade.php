@@ -29,6 +29,9 @@
                         <thead class="text-xs text-gray-700 uppercase">
                         <tr>
                             <th scope="col" class="px-6 py-3">
+                                #
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Name
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -40,15 +43,15 @@
                             <th scope="col" class="px-6 py-3">
                                 Status
                             </th>
-                            <th scope="col" class="px-6 py-3">
-                                <span class="sr-only">Edit</span>
-                            </th>
                         </tr>
                         </thead>
                         <tbody>
                         @if(!empty($categories))
                             @foreach($categories as $category)
                                 <tr class="bg-white border-b border-gray-200 hover:bg-gray-50">
+                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                        {{ $category->id }}
+                                    </th>
                                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                         {{ $category->name }}
                                     </th>
@@ -70,7 +73,8 @@
                                         @endif
                                     </td>
                                     <td class="px-6 py-4 text-right">
-                                        <a href="{{ route('categories.edit', $category->id) }}" class="font-medium text-indigo-500 hover:underline">Edit</a>
+                                        <a href="{{ route('categories.show', $category->id) }}" class="font-medium text-gray-500 hover:underline">View</a>
+                                        <a href="{{ route('categories.edit', $category->id) }}" class="font-medium text-indigo-500 hover:underline ml-2">Edit</a>
                                         <form class="inline" action="{{ route('categories.destroy', $category->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')

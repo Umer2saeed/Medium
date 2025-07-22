@@ -8,14 +8,19 @@
     <div class="py-12">
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8 space-y-6">
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <header>
-                    <h2 class="text-lg font-medium text-gray-900">
-                        {{ __('Category Information') }}
-                    </h2>
+                <header class="flex justify-between">
+                    <div>
+                        <h2 class="text-lg font-medium text-gray-900">
+                            {{ __('Category Information') }}
+                        </h2>
 
-                    <p class="mt-1 text-sm text-gray-600">
-                        {{ __("Edit your category.") }}
-                    </p>
+                        <p class="mt-1 text-sm text-gray-600">
+                            {{ __("Edit your category.") }}
+                        </p>
+                    </div>
+                    <div>
+                        <a href="{{ route('categories.index') }}" class="rounded-md bg-indigo-500 px-2.5 py-1.5 text-sm font-semibold text-white border border-indigo-500 hover:border-indigo-600 shadow-xs hover:bg-indigo-600">Back</a>
+                    </div>
                 </header>
 
                 <form method="post" action="{{ route('categories.update', $category->id) }}" class="mt-6 space-y-6" enctype="multipart/form-data">
