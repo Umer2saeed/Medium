@@ -66,7 +66,10 @@
                         <div>
                             <x-input-label for="image_preview" :value="__('Image Preview')" />
                             @if(!empty($category->image))
-                                <img src="{{ asset('images/categories/thumb/'.$category->image) }}" alt="{{ $category->name }}" class="h-[113px] mt-1 w-auto rounded-md">
+                                <a href="{{ asset('images/categories/'.$category->image) }}" data-lightbox="example-set">
+                                    <img src="{{ asset('images/categories/thumb/'.$category->image) }}" alt="{{ $category->name }}" class="h-[113px] mt-1 w-auto rounded-md">
+                                </a>
+
                             @else
                                 <span class="text-gray-500 text-sm">No image</span>
                             @endif

@@ -57,7 +57,9 @@
                                     </th>
                                     <td class="px-6 py-4">
                                         @if(!empty($category->image))
-                                            <img src="{{ asset('images/categories/thumb/'.$category->image) }}" alt="{{ $category->name }}" class="h-16 w-auto rounded-md">
+                                            <a href="{{ asset('images/categories/'.$category->image) }}" data-lightbox="example-set">
+                                                <img src="{{ asset('images/categories/thumb/'.$category->image) }}" alt="{{ $category->name }}" class="h-16 w-auto rounded-md">
+                                            </a>
                                         @else
                                             <span class="text-gray-500 text-sm">No image</span>
                                         @endif
@@ -93,4 +95,9 @@
         </div>
     </div>
 
+    @section('scripts')
+        <script>
+
+        </script>
+    @endsection
 </x-app-layout>

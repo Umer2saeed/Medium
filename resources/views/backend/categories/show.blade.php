@@ -43,7 +43,9 @@
                     <div class="mb-6">
                         <h2 class="font-bold mb-2">Image</h2>
                         @if(!empty($category->image))
-                            <img src="{{ asset('images/categories/'.$category->image) }}" alt="{{ $category->name }}" class="w-64 h-auto mt-1 rounded-md">
+                            <a href="{{ asset('images/categories/'.$category->image) }}" data-lightbox="example-set">
+                                <img src="{{ asset('images/categories/'.$category->image) }}" alt="{{ $category->name }}" class="w-64 h-auto mt-1 rounded-md">
+                            </a>
                         @else
                             <span class="text-gray-500 text-sm">No image</span>
                         @endif

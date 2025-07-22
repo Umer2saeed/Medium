@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/css/lightbox.min.css"/>
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -34,9 +34,7 @@
             </main>
         </div>
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.5/js/lightbox.min.js"></script>
         @yield('scripts')
-
-{{--        <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>--}}
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     </body>
 </html>
